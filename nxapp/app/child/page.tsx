@@ -1,10 +1,17 @@
-export default function Child({ states }) {
+type ChildProps = {
+  states: string[];
+};
+
+export default function Child({ states = [] }: ChildProps) {
   return (
     <div className="child-box">
       <p><strong>States passed from parent:</strong></p>
       <ul>
-        {states.map((s, i) => <li key={i}>{s}</li>)}
+        {states.map((state, index) => (
+          <li key={index}>{state}</li>
+        ))}
       </ul>
     </div>
   );
 }
+
